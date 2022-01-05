@@ -5,14 +5,16 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(params[:id])
+    #binding.pry
+    user = User.find_by(email: params[:session][:email])
 
-    if user && user.authenticate(params[:password])
+    if user && user.authenticate(params[:session][:password])
+      binding.pry
       session[:user_id] = user.id
-      flash[:notice]="Login sucessful"
-      redirect_to '/welcome'
+      flash[:notice]= "Login sucessful"
+      redirect_to user
     else
-      flash[:notice]="Invalid email or password"
+      flash[:notice]= "Invalid email or password"
       redirect_to '/login'
     end
   end

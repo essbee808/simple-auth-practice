@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "Sign up successful"
-      render '/welcome'
+      redirect_to @user
     else
       flash[:notice] = "Please try again"
       redirect_to '/signup'

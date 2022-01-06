@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'posts/new'
+  get 'posts/edit'
+  get 'posts/index'
+  get 'posts/show'
   get 'sessions/new'
   get 'sessions/create'
   get 'sessions/destroy'

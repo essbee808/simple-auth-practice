@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email])
 
     if user && user.authenticate(params[:session][:password])
-      binding.pry
+      #binding.pry
       session[:user_id] = user.id
       flash[:notice]= "Login sucessful"
       redirect_to user

@@ -8,13 +8,14 @@ class UsersController < ApplicationController
   end
 
   def create
-    binding.pry
-    @user = User.new(user_params)
+    #binding.pry
+    user = User.new(user_params)
     
-    if @user.save
-      session[:user_id] = @user.id
+    if user.save
+      #binding.pry
+      session[:user_id] = user.id
       flash[:notice] = "Sign up successful"
-      redirect_to @user
+      redirect_to user
     else
       flash[:notice] = "Please try again"
       redirect_to '/signup'

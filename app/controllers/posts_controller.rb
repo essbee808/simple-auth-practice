@@ -14,7 +14,8 @@ class PostsController < ApplicationController
   end
 
   def index
-    @post = Post.all
+    #binding.pry
+    @posts = Post.all
   end
 
   def show
